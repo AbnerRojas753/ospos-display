@@ -19,21 +19,21 @@ def get_local_ip():
 
 def main():
     local_ip = get_local_ip()
-    ospos_url = f"http://{local_ip}:8000"
-    
+    ospos_url = f"http://{local_ip}"
+
     # Crear ventana principal
     root = tk.Tk()
     root.title("OSPOS - Información del Sistema")
-    root.geometry("500x250")
+    root.geometry("520x380")
     root.resizable(False, False)
-    
+
     # Centrar ventana
     root.update_idletasks()
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
-    x = (screen_width - 500) // 2
-    y = (screen_height - 250) // 2
-    root.geometry(f"500x250+{x}+{y}")
+    x = (screen_width - 520) // 2
+    y = (screen_height - 380) // 2
+    root.geometry(f"520x380+{x}+{y}")
     
     # Colores
     bg_color = "#1a1a2e"
@@ -55,11 +55,11 @@ def main():
         bg=bg_color,
         fg=fg_color
     )
-    title_label.pack(pady=(30, 10))
-    
+    title_label.pack(pady=(30, 15))
+
     # IP Local
     ip_frame = tk.Frame(root, bg=bg_color)
-    ip_frame.pack(pady=10)
+    ip_frame.pack(pady=15)
     
     ip_label = tk.Label(
         ip_frame,
@@ -81,7 +81,7 @@ def main():
     
     # URL del sistema
     url_frame = tk.Frame(root, bg=bg_color)
-    url_frame.pack(pady=20)
+    url_frame.pack(pady=15)
     
     url_label = tk.Label(
         url_frame,
@@ -111,16 +111,18 @@ def main():
     copy_btn = tk.Button(
         root,
         text="📋 Copiar URL",
-        font=font.Font(family="Segoe UI", size=10),
+        font=font.Font(family="Segoe UI", size=12),
         bg="#2d2d44",
         fg=fg_color,
         activebackground="#3d3d5c",
         activeforeground=fg_color,
         command=copy_url,
         relief="flat",
-        cursor="hand2"
+        cursor="hand2",
+        padx=20,
+        pady=8
     )
-    copy_btn.pack(pady=10)
+    copy_btn.pack(pady=15)
     
     # Ejecutar
     root.mainloop()
